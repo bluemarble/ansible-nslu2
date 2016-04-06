@@ -5,4 +5,4 @@
   tasks:
   - lineinfile: dest=/etc/hosts line="{{hostvars[item].ansible_default_ipv4.address}} {{item}}" state=absent
     when: hostvars[item].ansible_default_ipv4.address is defined
-    with_items: groups['all']
+    with_items: "{{groups['all']}}"
